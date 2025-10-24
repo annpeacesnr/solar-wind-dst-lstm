@@ -113,17 +113,11 @@ Performance varies across solar cycles due to non-linear storm behavior.
 
 ## 🖊 License
 
-MIT License *(or specify another if preferred)*
+MIT License 
 
 ---
 
 ## 🙋‍♀️ Author
 
-*Your Name Here*
-
-
----
-
-```
-
+@annpeacesnr
 

@@ -205,3 +205,39 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# --- Project-specific ignores ---
+
+# Data (keep only tiny samples in repo)
+data/*
+!data/sample/
+# keep directory placeholders if you use them
+!data/.gitkeep
+!data/sample/.gitkeep
+
+# Model artifacts & trained weights
+models/artifacts/
+*.h5
+*.hdf5
+*.keras
+*.tflite
+*.onnx
+*.pb
+*.ckpt*
+*.pck
+*.pkl
+*.pickle
+
+# Plots/figures generated during runs (optional)
+figures/
+reports/
+*.png
+*.pdf
+
+# Local/override config that shouldn't be committed
+config.local.yaml
+.env.local
+
+# Caches (in case anything else drops one)
+.cache/
+

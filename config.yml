@@ -1,0 +1,33 @@
+# Data
+data:
+  raw_dir: data/raw
+  sample_dir: data/sample
+  solar_wind: solar_wind.csv
+  dst: labels.csv
+  sunspots: sunspots.csv
+
+# Features
+features:
+  solar_wind_subset: [bt, temperature, bx_gse, by_gse, bz_gse, speed, density]
+  agg_stats: [mean, std]
+  ycols: [t0, t1]
+
+# Sequences
+sequence:
+  timesteps: 32
+  batch_size: 32
+
+# Model / Training
+model:
+  neurons: 512
+  dropout: 0.4
+  stateful: false
+  loss: mean_squared_error
+  optimizer: adam
+  epochs: 20
+
+# Output
+artifacts:
+  model_dir: models/artifacts
+  scaler_path: models/artifacts/scaler.pck
+  config_out: models/artifacts/config.json

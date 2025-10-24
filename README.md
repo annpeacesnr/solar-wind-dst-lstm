@@ -49,22 +49,25 @@ This project:
 ## 📦 Project Structure
 
 ```bash
-lstm-network/
-├── data/
-│   └── sample/              # (optional) tiny example dataset
-├── models/
-│   └── lstm_model.py        # LSTM model definition
+/solar-wind-dst-lstm
+├── README.md
+├── requirements.txt
+├── config.yaml
+├── .gitignore
+│
 ├── notebooks/
-│   └── exploration.ipynb    # Original notebook (R&D, experiments)
+│   └── exploration.ipynb
+│
+├── models/
+│   └── lstm_model.py
+│
 ├── utils/
-│   ├── dataset.py           # Data preprocessing + sequence builder
-│   ├── metrics.py           # RMSE, precision, recall, F1 helpers
-│   └── plot.py              # Training & validation visualizations
-├── train.py                 # Full training pipeline
-├── evaluate.py              # Evaluation on test/holdout data
-├── config.yaml              # Hyperparameters & settings
-├── requirements.txt         # Python dependencies
-└── README.md                # You are here 🙂
+│   ├── dataset.py
+│   ├── metrics.py
+│   └── plot.py
+│
+├── train.py
+└── evaluate.py
 ```
 ---
 

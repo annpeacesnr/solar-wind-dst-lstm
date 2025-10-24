@@ -79,14 +79,14 @@ pip install -r requirements.txt
 
 **Train the model**
 ```bash
-python train.py
+train.py
 ```
 
 ---
 
 **Evaluate performance**
 ```bash
-python evaluate.py
+evaluate.py
 ```
 
 ---

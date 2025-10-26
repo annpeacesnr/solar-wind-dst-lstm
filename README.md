@@ -46,6 +46,22 @@ This project:
 
 ---
 
+## 🔗 Feature Relationships
+
+Understanding how solar wind features interact helps explain which conditions influence geomagnetic storms.
+
+![Feature Correlation Heatmap](images/feature_correlation_heatmap.png)
+
+Key observations:
+- Magnetic field components (Bx, By, Bz) show strong internal correlation.
+- **Bz** is particularly important — its southward orientation increases geomagnetic storm likelihood.
+- Solar wind **density** and **speed** form a distinct physical cluster.
+- Sunspot number (`smoothed_ssn`) has a long-scale solar-cycle trend rather than moment-to-moment impact.
+
+This insight guided feature selection and model architecture choices.
+
+---
+
 ## 📦 Project Structure
 
 ```bash

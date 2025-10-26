@@ -49,15 +49,15 @@ This project:
 ## 🔗 Feature Relationships
 
 Understanding how solar wind features interact helps explain which conditions influence geomagnetic storms.
-
-![Feature Correlation Heatmap](images/feature_correlation_heatmap.png)
-
-Key observations:
-- Magnetic field components (Bx, By, Bz) show strong internal correlation.
-- **Bz** is particularly important — its southward orientation increases geomagnetic storm likelihood.
-- Solar wind **density** and **speed** form a distinct physical cluster.
-- Sunspot number (`smoothed_ssn`) has a long-scale solar-cycle trend rather than moment-to-moment impact.
-
+<p align="center">
+  <img src="images/feature_correlation_heatmap.png" width="550">
+</p>
+Key observations:<br>
+- Magnetic field components (Bx, By, Bz) show strong internal correlation.<br>
+- **Bz** is particularly important — its southward orientation increases geomagnetic storm likelihood.<br>
+- Solar wind **density** and **speed** form a distinct physical cluster.<br>
+- Sunspot number (`smoothed_ssn`) has a long-scale solar-cycle trend rather than moment-to-moment impact.<br>
+<br>
 This insight guided feature selection and model architecture choices.
 
 ---
@@ -86,6 +86,22 @@ This insight guided feature selection and model architecture choices.
 └── evaluate.py
 ```
 ---
+
+## 📊 Train / Validation / Test Split Strategy
+
+Because this is a **time–series forecasting** problem, the data is split chronologically — no shuffling — to preserve temporal structure and avoid data leakage.
+
+The dataset consists of three long observation periods (`train_a`, `train_b`, `train_c`).  
+For each period:
+
+- **Train** → Early observations (~70%)
+- **Validation** → Middle segment (~15%)
+- **Test** → Final segment (~15%)
+
+This ensures the model is always evaluated on **future** data it has never seen.
+<p align="center">
+  <img src="images/test_split_plot.png" width="550">
+</p>
 
 ## 🚀 Quick Start
 
@@ -120,6 +136,23 @@ evaluate.py
 Performance varies across solar cycles due to non-linear storm behavior.
 
 ---
+
+## 🔮 Forecast vs Reality
+
+One of the core goals of this project is to determine whether solar wind measurements contain enough structure to *predict* geomagnetic disturbance intensity.
+
+The figure below compares the **LSTM model’s prediction** (red) to the **actual Dst index** (green) over a 200–hour window:
+<p align="center">
+  <img src="images/final.png" width="550">
+</p>
+
+**What we see:**
+- The model successfully captures **overall waveform shapes**
+- Peaks and troughs are **aligned in time**, meaning temporal patterns are learned
+- Amplitude differences appear mainly during **storm intensification events** (expected — these are chaotic and harder to forecast)
+
+This indicates that the model isn’t guessing or overfitting — it’s genuinely learning **physical relationships** between the solar wind and geomagnetic response.
+
 
 ## 🎯 Purpose & Use Cases
 
